@@ -1,0 +1,11 @@
+mfmain_home:
+    path:     /
+    defaults: { _controller: MFMainBundle:Default:index }
+
+mfmain_hello:
+    path:     /hello_world
+    defaults: { _controller: MFMainBundle:Default:helloworld }
+
+mfmain_contact:
+    path:     /contact
+    defaults: { _controller: MFMainBundle:Default:contact }

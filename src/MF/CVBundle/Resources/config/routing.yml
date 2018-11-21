@@ -1,0 +1,35 @@
+mfcv_reference:
+    resource: "@MFCVBundle/Resources/config/routing/reference.yml"
+    prefix:   /reference
+
+mfcv_competence:
+    resource: "@MFCVBundle/Resources/config/routing/competence.yml"
+    prefix:   /cv/competence
+
+mfcv_category:
+    resource: "@MFCVBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+mfcv_cv_job:
+    resource: "@MFCVBundle/Resources/config/routing/job.yml"
+    prefix:   /cv/experiences
+
+mf_cv_homepage:
+    path:     /cv
+    defaults: { _controller: MFCVBundle:Default:index }
+
+mf_cv_references:
+    path:     /cv/references
+    defaults: { _controller: MFCVBundle:Reference:index }
+mf_cv_competences:
+    path:     /cv/competences
+    defaults: { _controller: MFCVBundle:Competence:index }
+mf_cv_loisirs:
+    path:     /cv/loisirs
+    defaults: { _controller: MFCVBundle:Default:loisirs }
+mf_cv_contact:
+    path:     /cv/contact
+    defaults: { _controller: MFCVBundle:Contact:index }
+mf_cv_download:
+    path:     /cv/download
+    defaults: { _controller: MFCVBundle:Default:download }

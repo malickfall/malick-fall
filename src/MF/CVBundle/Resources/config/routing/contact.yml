@@ -1,0 +1,10 @@
+cv_contact:
+    path:     /
+    defaults: { _controller: "MFCVBundle:Contact:index" }
+
+cv_contact_show:
+    path:     /{id}/show
+    defaults: { _controller: "MFCVBundle:Contact:show" }
+
+
+

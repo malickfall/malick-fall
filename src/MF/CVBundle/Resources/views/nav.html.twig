@@ -1,0 +1,11 @@
+{% macro nav(active=null) %}
+<ul class="nav nav-pills col-md-8" role="tablist">
+	<li role="presentation"{% if active == 1 %}{{ 'class="active"' }}{% endif %}><a href="{{ path('mf_cv_homepage')  }}">Accueil</a></li>
+	<li role="presentation"{% if active == 2 %}{{ 'class="active"' }}{% endif %}><a href="{{ path('cv_job')  }}">Expériences</a></li>
+	<li role="presentation"{% if active == 3 %}{{ 'class="active"' }}{% endif %}><a href="{{ path('mf_cv_references')  }}">Références</a></li>
+	<li role="presentation"{% if active == 4 %}{{ 'class="active"' }}{% endif %}><a href="{{ path('mf_cv_competences')  }}">Compétences</a></li>
+	<li role="presentation"{% if active == 5 %}{{ 'class="active"' }}{% endif %}><a href="{{ path('mf_cv_loisirs')  }}">Loisirs</a></li>
+	<li role="presentation"{% if active == 6 %}{{ 'class="active"' }}{% endif %}><a href="{{ path('mf_cv_contact')  }}">Contact</a></li>
+	<li role="presentation" class="pull-right"><a href="{{ path('mf_cv_download')  }}"><span class="glyphicon glyphicon-download"></span> Télécharger</a></li>
+</ul>
+{% endmacro %}

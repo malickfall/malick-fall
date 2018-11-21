@@ -1,0 +1,14 @@
+# src/MF/CVBundle/Resources/config/validation.yml
+MF\CVBundle\Entity\Contact:
+    properties:
+        nom:
+            - NotBlank: ~
+        prenom:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+            - Email:
+                message: "'{{ value }}' n'est pas un email valide."
+                checkMX: true
+        message:
+            - NotBlank: ~

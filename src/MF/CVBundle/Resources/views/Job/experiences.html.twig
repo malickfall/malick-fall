@@ -1,0 +1,31 @@
+{# src/MF/CVBundle/Resources/views/Default/experiences.html.twig #}
+{% extends 'MFCVBundle::layout.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+
+{% block nav %}
+	{{ mynav.nav(2) }}
+{% endblock %}
+
+{% block content %}
+	<span class="glyphicon glyphicon-tags"> EXPERIENCES</span><br/>
+	<div>&nbsp;</div>
+
+	{% for experience in experiences %}
+	<div class="panel panel-default flat grey">
+		<div class="panel-body">
+			<span class="glyphicon glyphicon-tag"> <strong>{{ experience.position }}</strong></span>
+			<div>&nbsp;</div>
+			<dl class="dl-horizontal">
+			  <dt>{{ experience.company }}</dt>
+			  <dd>{{ experience.location }}</dd>
+			</dl>
+			<dl class="dl-horizontal">
+			  <dt></dt>
+			  <dd>{{ experience.description }}</dd>
+			</dl>
+			<footer><a href="{{ experience.url }}" target="_blank">{{ experience.url }}</a></footer>
+		</div>
+	</div>
+	{% endfor %}
+	
+{% endblock %}

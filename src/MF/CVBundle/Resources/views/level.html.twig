@@ -1,0 +1,9 @@
+{% macro stars(stars) %}
+	{% set diff = 5-stars %}
+	{% for i in 1..stars %}
+	  	<span class="glyphicon glyphicon-star"></span>
+	{% endfor %}
+	{% for j in 1..diff %}
+	  	<span class="glyphicon glyphicon-star-empty"></span>
+	{% endfor %}
+{% endmacro %}

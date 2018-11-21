@@ -1,0 +1,29 @@
+MF\CVBundle\Entity\Contact:
+  type: entity
+  repositoryClass: MF\CVBundle\Repository\ContactRepository
+  table: contact
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    nom:
+      type: string
+      length: 255
+    prenom:
+      type: string
+      length: 255
+    email:
+      type: string
+      length: 255
+    url:
+      type: string
+      length: 255
+      nullable: true
+    objet:
+      type: string
+      length: 255
+    message:
+      type:text
+    submited_at:
+      type: datetime

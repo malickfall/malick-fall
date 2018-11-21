@@ -1,0 +1,42 @@
+{# src/MF/CVBundle/Resources/views/Default/competences.html.twig #}
+{% extends 'MFCVBundle::layout.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+{% import 'MFCVBundle::level.html.twig' as level %}
+
+{% block nav %}
+	{{ mynav.nav(4) }}
+{% endblock %}
+
+{% block content %}
+	<span class="glyphicon glyphicon-list"> COMPETENCES</span><br/>
+	<div>&nbsp;</div>
+	
+	{% for key,competence in competences%}
+		<div class="panel panel-default flat grey">
+			<div class="panel-heading">{{ key|upper }}</div>
+			<div class="panel-body">
+				<table class="table table-hover">
+				{% if key == 'Techniques' %}
+					<tr>
+					  <th>Compétence</th>
+					  <th>Niveau de maîtrise</th>
+					</tr>
+					{% for obj in competence %}
+						<tr>
+						  <td>{{ obj.nom }}</td>
+						  <td>
+						  	{{ level.stars(obj.niveau) }}
+						  </td>
+						</tr>
+					{% endfor %}
+				{% else %}
+					{% for obj in competence %}
+						<tr><td>{{ obj.nom }}</td></tr>
+					{% endfor %}
+				{% endif %}
+				</table>
+			</div>
+		</div>
+	{% endfor %}
+
+{% endblock %}

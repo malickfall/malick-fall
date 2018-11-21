@@ -1,0 +1,42 @@
+.navbar.flat,
+.navbar.flat .nav-pills > li > a,
+.panel.flat,
+.panel.flat .panel-heading,
+.panel.flat .panel-body
+{
+	border-radius: 0px;
+}
+.navbar.flat {min-height: 42px}
+.panel.flat.grey {background-color:#eee}
+.panel.flat.grey .panel-heading {color:#428bca}
+#header {margin: 20px 0;}
+#header a:hover {color: #428bca}
+#header h1 {padding-left: 0}
+#leftsidebar {padding-left: 0}
+#content {min-height:349px}
+/*#rightsidebar span.glyphicon {font-size:18px;}*/
+#footer {
+	min-height: 100px;
+	width:100%;
+	background-color: #ccc;
+	position:relative;
+	bottom:0;
+	left:0;
+	text-align:center;
+	padding-top:5px;
+	margin-top:30px;
+}
+.btn-group.flat {
+	width:100%;
+	padding:5px;
+}
+.btn-group.flat button {
+	background-color: #777;
+	color:#fff;
+	width:50%;
+	border-radius:0px;
+}
+button.flat {border-radius:0px;}
+.input-group-addon {border-radius:0px;min-width:100px}
+.form-control {border-radius:0px}
+.list-group.flat li {border-radius:0px}

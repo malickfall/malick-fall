@@ -1,0 +1,89 @@
+{% extends 'MFCVBundle::layoutcv.html.twig' %}
+
+{% block stylesheets %}
+<style>
+	body {font-family:Arial, Helvetica, sans-serif;font-size:18px;}
+	h1 {font-size:40px;}
+	h2 {font-size:28px;}
+	h3 {font-size:22px;font-weight: normal}
+	.header-up {background-color:#333;color:#fff;padding:10px;}
+	.header-down {background-color:#ddd;padding:4px 10px;}
+	.header-down-left {width:33%;float:left;}
+	.header-down-middle {width:33%;}
+	.header-down-right {width:33%;float:right;}
+	.left-column {float:left;width:65%}
+	.right-column {float:left;width:30%}
+	.space-column {float:left;width:5%}
+	.job-row {margin-bottom:10px;background-color:#ddd;padding:10px;}
+	.job-row-left {width:35%}
+	.job-row-right {width:65%;float:right}
+	.comp-row {margin-bottom:10px;background-color:#ddd;padding:10px;}
+	.clear {clear:both;}
+	.position {font-size:20px;margin-bottom:5px;color:#428BCA;}
+	.company {font-weight:bold}
+	.header-link {color:#fff;text-decoration:none}
+	.link {font-style:italic;color:#111;text-decoration:none}
+	.desc {margin: 5px 0;}
+	.photo {float:left;height:100%}
+	.header-desc {}
+	.comp-row ul {margin: 0}
+</style>
+{% endblock %}
+
+{% block body %}
+	<div id="header">
+		<div class="header-up">
+			<div class="photo">photo</div>
+			<div class="header-desc">
+				<div><h1>{{ me.prenom }} {{ me.nom }}</h1></div>
+				<div><h2>{{ me.position }}</h2></div>
+				<div><a href="{{ me.site }}" class="header-link" target="_blank">{{ me.site }}</a></div>
+			</div>
+		</div>
+		<div class="header-down">
+			<span class="header-down-left">{{ me.age }}</span>
+			<span class="header-down-middle">{{ me.email }}</span>
+			<span class="header-down-right">{{ me.tel }}</span>
+		</div>
+	</div>
+	
+	<div id="content">
+		<div class="left-column">
+			<h3>{{ 'Expériences'|upper }}</h3>
+			<hr/>
+			<div>
+				{% for job in experiences %}
+					<div class="job-row">
+						<div class="position">{{ job.position }}</div>
+						<div>
+							<span class="job-row-left company">{{ job.company }}</span>
+							<span class="job-row-right">{{ job.location }}</span>
+						</div>
+						<div>
+							<span class="job-row-left">&nbsp;</span>
+							<span class="job-row-right desc">{{ job.description }}</span>
+						</div>
+						<div class="clear" target="_blank"><a class="link" href="{{ job.url }}">{{ job.url }}</a></div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="space-column">&nbsp;</div>
+		<div class="right-column">
+			<h3>{{ 'Compétences'|upper }}</h3>
+			<hr/>
+			<div>
+				{% for key,competence in competences %}
+					<div class="comp-row">
+						<div class="position">{{ key|upper }}</div>
+						<ul>
+						{% for obj in competence %}
+							<li>{{ obj.nom }}</li>
+						{% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{# src/MF/CVBundle/Resources/views/Default/loisirs.html.twig #}
+{% extends 'MFCVBundle::layout.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+
+{% block nav %}
+	{{ mynav.nav(5) }}
+{% endblock %}
+
+{% block content %}
+	<span class="glyphicon glyphicon-glass"> LOISIRS</span><br/>
+	<div>&nbsp;</div>
+	<div class="panel panel-default flat grey">
+		<div class="panel-body">
+			<span class="glyphicon glyphicon-ok"> Football</span><br/>
+			<span class="glyphicon glyphicon-ok"> Basketball</span><br/>
+			<span class="glyphicon glyphicon-ok"> Lecture</span><br/>
+			<span class="glyphicon glyphicon-ok"> Jeux vidéos</span><br/>
+			<span class="glyphicon glyphicon-ok"> Musiques</span><br/>
+			<span class="glyphicon glyphicon-ok"> Voyages</span><br/>
+		</div>
+	</div>
+{% endblock %}

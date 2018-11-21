@@ -1,0 +1,8 @@
+mfcv:
+    resource: "@MFCVBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mf_main:
+    resource: "@MFMainBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,10 @@
+reference:
+    path:     /
+    defaults: { _controller: "MFCVBundle:Reference:index" }
+
+reference_show:
+    path:     /{id}/show
+    defaults: { _controller: "MFCVBundle:Reference:show" }
+
+
+

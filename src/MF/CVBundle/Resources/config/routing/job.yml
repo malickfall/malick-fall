@@ -1,0 +1,10 @@
+cv_job:
+    path:     /
+    defaults: { _controller: "MFCVBundle:Job:index" }
+
+cv_job_show:
+    path:     /{id}/show
+    defaults: { _controller: "MFCVBundle:Job:show" }
+
+
+

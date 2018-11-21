@@ -1,0 +1,45 @@
+{# src/MF/CVBundle/Resources/views/Default/index.html.twig #}
+{% extends 'MFCVBundle::home.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+
+{% block nav %}
+	{{ mynav.nav(1) }}
+{% endblock %}
+
+{% block content %}
+	<span class="glyphicon glyphicon-tags"> EXPERIENCES</span>
+	<div>&nbsp;</div>
+
+	{% for experience in experiences %}
+	<div class="panel panel-default flat grey">
+	  	<div class="panel-body">
+			<span class="glyphicon glyphicon-tag"> <strong>{{ experience.position }}</strong></span>
+			<div>&nbsp;</div>
+			<dl class="dl-horizontal">
+			   <dt>{{ experience.company }}</dt>
+			  <dd>{{ experience.location }}</dd>
+			</dl>
+			<dl class="dl-horizontal">
+			  <dt></dt>
+			  <dd>{{ experience.description }}</dd>
+			</dl>
+			<footer><a href="{{ experience.url }}" target="_blank">{{ experience.url }}</a></footer>
+		</div>
+	</div>
+	{% endfor %}
+
+{% endblock %}
+
+{% block right %}
+<span class="glyphicon glyphicon-list"> COMPETENCES</span>
+<div>&nbsp;</div>
+<ul class="list-group flat">
+	{% for key,competence in competences %}
+		{% if key == 'Techniques' %}
+			{% for obj in competence %}
+				<li class="list-group-item"><span class="glyphicon glyphicon-ok"> {{ obj.nom }}</span></li>
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+competence:
+    path:     /
+    defaults: { _controller: "MFCVBundle:Competence:index" }
+
+competence_show:
+    path:     /{id}/show
+    defaults: { _controller: "MFCVBundle:Competence:show" }
+
+
+

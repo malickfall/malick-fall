@@ -1,0 +1,62 @@
+{# src/MF/CVBundle/Resources/views/Contact/contact.html.twig #}
+{% extends 'MFCVBundle::layout.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+
+{% block nav %}
+	{{ mynav.nav(6) }}
+{% endblock %}
+
+{% block content %}
+	{% if submitted is defined %}
+		<div class="alert alert-success" role="alert">
+			formulaire soumis
+		</div>
+	{% endif %}
+	<span class="glyphicon glyphicon-pencil"> ME CONTACTER</span>
+
+	<div class="clear">&nbsp;</div>
+
+	{{ form_start(form) }}
+	    {{ form_errors(form) }}
+
+		<div class="input-group">
+		  <span class="input-group-addon">{{ form_label(form.nom) }}</span>
+		  {{ form_widget(form.nom, {'attr': {'class': 'form-control','placeholder': 'Nom'}}) }}
+		</div>{{ form_errors(form.nom) }}
+
+	    <div class="input-group">
+		  <span class="input-group-addon">{{ form_label(form.prenom) }}</span>
+		  {{ form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder': 'Prénom'}}) }}
+		</div>{{ form_errors(form.prenom) }}
+
+	    <div class="input-group">
+		  <span class="input-group-addon">{{ form_label(form.email) }}</span>
+		  {{ form_widget(form.email, {'attr': {'class': 'form-control','placeholder': 'Email'}}) }}
+		</div>{{ form_errors(form.email) }}
+
+		<div class="input-group">
+		  <span class="input-group-addon">{{ form_label(form.url) }}</span>
+		  {{ form_widget(form.url, {'attr': {'class': 'form-control','placeholder': 'URL'}}) }}
+		</div>{{ form_errors(form.url) }}
+
+		<div class="input-group">
+		  <span class="input-group-addon">{{ form_label(form.objet) }}</span>
+		  {{ form_widget(form.objet, {'attr': {'class': 'form-control','placeholder': 'Objet'}}) }}
+		</div>{{ form_errors(form.objet) }}
+
+		<div class="input-group">
+		  <span class="input-group-addon">{{ form_label(form.message) }}</span>
+		  {{ form_widget(form.message, {'attr': {'class': 'form-control','placeholder': 'Message'}}) }}
+		</div>{{ form_errors(form.message) }}
+
+		<div>&nbsp;</div>
+		<div class="input-group">
+			{{ form_label(form.captcha) }}
+		  	{{ form_widget(form.captcha) }}
+		  	{{ form_errors(form.captcha) }}
+		</div>		
+
+		<div>&nbsp;</div>
+	{{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{# src/MF/CVBundle/Resources/views/Default/references.html.twig #}
+{% extends 'MFCVBundle::layout.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+
+{% block nav %}
+	{{ mynav.nav(3) }}
+{% endblock %}
+
+{% block content %}
+	<span class="glyphicon glyphicon-folder-open"> {{ 'références'|upper }}</span><br/><div>&nbsp;</div>
+	{% for reference in references %}
+		<div class="panel panel-default flat grey">
+	  	<div class="panel-body">
+			<span class="glyphicon glyphicon-folder-close"> <strong><a href="{{ reference.url }}" target="_blank" style="color:#333;text-decoration:none">{{ reference.nom }}</a></strong></span>
+			<div>&nbsp;</div>
+			<div>{{ reference.description }}</div>
+			<footer><a href="{{ reference.url }}" target="_blank">{{ reference.url }}</a></footer>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock %}

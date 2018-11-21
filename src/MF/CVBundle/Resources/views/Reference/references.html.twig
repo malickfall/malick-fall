@@ -1,0 +1,12 @@
+{# src/MF/CVBundle/Resources/views/Default/references.html.twig #}
+{% extends 'MFCVBundle::layout.html.twig' %}
+{% import 'MFCVBundle::nav.html.twig' as mynav %}
+
+{% block nav %}
+	{{ mynav.nav(3) }}
+{% endblock %}
+
+{% block content %}
+	<span class="glyphicon glyphicon-folder-open"> REFERENCES</span><br/>
+	Reference::indexAction, references.html.twig
+{% endblock %}

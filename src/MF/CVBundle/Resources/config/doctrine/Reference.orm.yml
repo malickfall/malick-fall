@@ -1,0 +1,25 @@
+MF\CVBundle\Entity\Reference:
+  type: entity
+  repositoryClass: MF\CVBundle\Repository\ReferenceRepository
+  table: reference
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    nom:
+      type: string
+      length: 255
+    description:
+      type: string
+      length: 255
+    url:
+      type: string
+      length: 255
+      nullable: true
+  manyToOne:
+    job:
+      targetEntity: Job
+      joinColumn:
+        name: job_id
+        referencedColumnName: id

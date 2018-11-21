@@ -1,0 +1,21 @@
+MF\CVBundle\Entity\Competence:
+  type: entity
+  repositoryClass: MF\CVBundle\Repository\CompetenceRepository
+  table: competence
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    nom:
+      type: string
+      length: 255
+    niveau:
+      type: integer
+      nullable: true
+  manyToOne:
+    category:
+      targetEntity: Category
+      joinColumn:
+        name: category_id
+        referencedColumnName: id
