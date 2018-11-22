@@ -34,7 +34,7 @@
 <div>&nbsp;</div>
 <ul class="list-group flat">
 	{% for competence in competences %}
-		{% if competence.category.nom == 'Techniques' %}
+		{% if competence.category.nom == 'Backend' or competence.category.nom == 'Frontend' or competence.category.nom == 'Outils' %}
 				<li class="list-group-item"><span class="glyphicon glyphicon-ok"> {{ competence.nom }}</span></li>
 		{% endif %}
 	{% endfor %}
