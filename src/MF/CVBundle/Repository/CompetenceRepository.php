@@ -14,9 +14,9 @@ use Doctrine\ORM\Query\AST\Join;
 class CompetenceRepository extends EntityRepository
 {
 	public function getOrderedCompetences()
-	{
-		$qb = $this->createQueryBuilder('c');
-		$qb->innerJoin(
+	{    
+        $qb = $this->createQueryBuilder('c');
+        $qb->innerJoin(
 			'c.category',
 			'cat',
 			'WITH',
@@ -24,17 +24,8 @@ class CompetenceRepository extends EntityRepository
 		)->orderBy('c.category');
 
 		$query = $qb->getQuery();
-		$return = array();
-	
-		try {	
-			foreach($query->getArrayResult() as $result){
-				$return[$result['nom']][] = $result;
-			}
-		} catch (\Exception $e) {
-			var_dump($e->getMessage());die;
-		}
-
-		return $return;
+    
+        return $query->getResult();
 	}
 
 	public function getCompetencesByCategory($category_id)

@@ -10,14 +10,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-	$em = $this->getDoctrine()->getManager();
+	    $em = $this->getDoctrine()->getManager();
 
-	try {	
-		$experiences = $em->getRepository('MFCVBundle:Job')->getActiveJobs();
-		$competences = $em->getRepository('MFCVBundle:Competence')->getOrderedCompetences();
-	} catch (\Exception $e) {
-		var_dump($e->getMessage());die('ici');
-	}
+	    try {	
+		    $experiences = $em->getRepository('MFCVBundle:Job')->getActiveJobs();
+		    $competences = $em->getRepository('MFCVBundle:Competence')->getOrderedCompetences();
+	    } catch (\Exception $e) {
+		    var_dump($e->getMessage());die('ici');
+	    }
 
         return $this->render('MFCVBundle:Default:index.html.twig',array(
             'title'=>'Ingénieur Développeur | Malick Fall',

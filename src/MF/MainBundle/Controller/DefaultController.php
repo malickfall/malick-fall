@@ -10,10 +10,12 @@ class DefaultController extends Controller
     {
         return $this->render('MFMainBundle:Default:index.html.twig');
     }
+
     public function helloworldAction()
     {
         return $this->render('MFMainBundle:Default:helloworld.html.twig');
     }
+
     public function contactAction()
     {
         return $this->render('MFMainBundle:Default:contact.html.twig');

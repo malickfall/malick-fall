@@ -1,4 +1,3 @@
-{# src/MF/CVBundle/Resources/views/Default/index.html.twig #}
 {% extends 'MFCVBundle::home.html.twig' %}
 {% import 'MFCVBundle::nav.html.twig' as mynav %}
 
@@ -34,11 +33,9 @@
 <span class="glyphicon glyphicon-list"> COMPETENCES</span>
 <div>&nbsp;</div>
 <ul class="list-group flat">
-	{% for key,competence in competences %}
-		{% if key == 'Techniques' %}
-			{% for obj in competence %}
-				<li class="list-group-item"><span class="glyphicon glyphicon-ok"> {{ obj.nom }}</span></li>
-			{% endfor %}
+	{% for competence in competences %}
+		{% if competence.category.nom == 'Techniques' %}
+				<li class="list-group-item"><span class="glyphicon glyphicon-ok"> {{ competence.nom }}</span></li>
 		{% endif %}
 	{% endfor %}
 </ul>
