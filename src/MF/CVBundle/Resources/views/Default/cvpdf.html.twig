@@ -33,11 +33,11 @@
 {% block body %}
 	<div id="header">
 		<div class="header-up">
-			<div class="photo">photo</div>
+			<!--<div class="photo">photo</div>-->
 			<div class="header-desc">
 				<div><h1>{{ me.prenom }} {{ me.nom }}</h1></div>
 				<div><h2>{{ me.position }}</h2></div>
-				<div><a href="{{ me.site }}" class="header-link" target="_blank">{{ me.site }}</a></div>
+				<!--<div><a href="{{ me.site }}" class="header-link" target="_blank">{{ me.site }}</a></div>-->
 			</div>
 		</div>
 		<div class="header-down">
@@ -73,9 +73,9 @@
 			<h3>{{ 'Compétences'|upper }}</h3>
 			<hr/>
 			<div>
-				{% for key,competence in competences %}
+				{% for competence in competences if competence.category.nom == 'Backend' or competence.category.nom == 'Frontend' %}
 					<div class="comp-row">
-						<div class="position">{{ key|upper }}</div>
+						<div class="position">{{ competence.nom|upper }}</div>
 						<ul>
 						{% for obj in competence %}
 							<li>{{ obj.nom }}</li>

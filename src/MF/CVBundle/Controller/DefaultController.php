@@ -2,6 +2,7 @@
 
 namespace MF\CVBundle\Controller;
 
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,26 +51,40 @@ class DefaultController extends Controller
     public function downloadAction()
     {
         $cv = $this->get('mf.cvmanager');
-        $me = $cv->getPersonnalData();
-
         $em = $this->getDoctrine()->getManager();
-        $experiences = $em->getRepository('MFCVBundle:Job')->getActiveJobs();
-        $competences = $em->getRepository('MFCVBundle:Competence')->getOrderedCompetences();
+ 
+        try {
+            $me = $cv->getPersonnalData();
 
-        $html = $this->renderView('MFCVBundle:Default:cvpdf.html.twig',array(
+            $experiences = $em->getRepository('MFCVBundle:Job')->getActiveJobs();
+            $competences = $em->getRepository('MFCVBundle:Competence')->getOrderedCompetences();
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());die;
+        }
+
+        
+        /*$html = $this->renderView('MFCVBundle:Default:cvpdf.html.twig', array(
             'me' => $me,
             'experiences' => $experiences,
             'competences' => $competences,
         ));
 
-        return new Response(
-            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
-            200,
-            array(
-                'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'attachment; filename="malickfall-cv.pdf"'
-            )
-        );
+        $pdf = $this->get('knp_snappy.pdf')->getOutputFromHtml($html);
+		*/
+
+        /*return new Response($pdf, 200, array(
+            'Content-Type'          => 'application/pdf',
+            'Content-Disposition'   => 'attachment; filename="malickfall-cv.pdf"'
+        ));*/
+
+		
+        return $this->render('MFCVBundle:Default:cvpdf.html.twig', array(
+            'me' => $me,
+            'experiences' => $experiences,
+            'competences' => $competences,
+        ));
+
+		//return new PdfResponse($pdf, 'file.pdf');
     }
 }
 

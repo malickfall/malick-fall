@@ -21,7 +21,21 @@ class LoadReferenceData extends AbstractFixture implements OrderedFixtureInterfa
 
     public function loadJobs(ObjectManager $manager)
     {
-    	$job = new Job();
+    	$bd = new Job();
+		$bd->setCompany('Bourse Direct');
+		$bd->setType('CDI');
+		$bd->setUrl('http://www.boursedirect.fr');
+		$bd->setPosition('Lead developer Back/Front');
+		$bd->setLocation('Paris');
+		$bd->setDescription('Développement des logiciels Bourse Direct. Lead developer Backend et Frontend');
+		$bd->setToken(uniqid("",true));
+		$bd->setIsActivated(true);
+		$bd->setBegunAt(new \DateTime("2015-02-09 09:00:00"));
+		$bd->setEndedAt(new \DateTime(""));
+		$manager->persist($bd);
+		$this->addReference('bd', $bd);
+   
+        $job = new Job();
 		$job->setCompany('Inter Trade Network');
 		$job->setType('CDI');
 		$job->setUrl('http://www.itnetwork.fr');
@@ -31,7 +45,7 @@ class LoadReferenceData extends AbstractFixture implements OrderedFixtureInterfa
 		$job->setToken(uniqid("",true));
 		$job->setIsActivated(true);
 		$job->setBegunAt(new \DateTime("2011-12-05 09:00:00"));
-		$job->setEndedAt(new \DateTime(""));
+		$job->setEndedAt(new \DateTime("2015-02-06"));
 		$manager->persist($job);
 		$this->addReference('itn', $job);
 
@@ -96,7 +110,21 @@ class LoadReferenceData extends AbstractFixture implements OrderedFixtureInterfa
 
     public function loadReferences(ObjectManager $manager)
     {
-    	$reference = new Reference();
+        $ob = new Reference();
+		$ob->setNom('Réécriture complète du passage d\'ordres');
+		$ob->setUrl('https://www.boursedirect.com');
+		$ob->setJob($this->getReference('bd'));
+		$ob->setDescription('Mise en place d\'une architecture microservices en NodeJS avec communication asynchrone via RabbitMQ, des apis clients en Symfony et un font en Angular. Mis en production en janvier 2018');
+		$manager->persist($ob);
+
+        $fv = new Reference();
+		$fv->setNom('Réécriture complète des fiches valeurs du site');
+		$fv->setUrl('https://www.boursedirect.com');
+		$fv->setJob($this->getReference('bd'));
+		$fv->setDescription('Mise en place d\'un référentiel valeur international multi sources exploitable via ElasticSearch, intégré en NodeJS et exploitant par des apis et des front controller Symfony');
+		$manager->persist($fv);
+        
+        $reference = new Reference();
 		$reference->setNom('Site d\'Exane Asset Management');
 		$reference->setUrl('https://www.exane-am.com');
 		$reference->setJob($this->getReference('itn'));
