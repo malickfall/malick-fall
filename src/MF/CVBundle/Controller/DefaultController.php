@@ -58,6 +58,7 @@ class DefaultController extends Controller
 
             $experiences = $em->getRepository('MFCVBundle:Job')->getActiveJobs();
             $competences = $em->getRepository('MFCVBundle:Competence')->getOrderedCompetences();
+            $references = $em->getRepository('MFCVBundle:Reference')->findAll();
         } catch (\Exception $e) {
             var_dump($e->getMessage());die;
         }
@@ -82,6 +83,7 @@ class DefaultController extends Controller
             'me' => $me,
             'experiences' => $experiences,
             'competences' => $competences,
+            'references' => $references
         ));
 
 		//return new PdfResponse($pdf, 'file.pdf');

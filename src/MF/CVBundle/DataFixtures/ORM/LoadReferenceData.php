@@ -41,7 +41,7 @@ class LoadReferenceData extends AbstractFixture implements OrderedFixtureInterfa
 		$job->setUrl('http://www.itnetwork.fr');
 		$job->setPosition('Chef de projet - Analyste-développeur web');
 		$job->setLocation('Paris');
-		$job->setDescription('Gestion et développement de projets WEB. Lead développeur Drupal et développeur symfony2');
+		$job->setDescription('Gestion et développement de projets WEB. Lead développeur Drupal et développeur Symfony');
 		$job->setToken(uniqid("",true));
 		$job->setIsActivated(true);
 		$job->setBegunAt(new \DateTime("2011-12-05 09:00:00"));
@@ -114,16 +114,30 @@ class LoadReferenceData extends AbstractFixture implements OrderedFixtureInterfa
 		$ob->setNom('Réécriture complète du passage d\'ordres');
 		$ob->setUrl('https://www.boursedirect.com');
 		$ob->setJob($this->getReference('bd'));
-		$ob->setDescription('Mise en place d\'une architecture microservices en NodeJS avec communication asynchrone via RabbitMQ, des apis clients en Symfony et un font en Angular. Mis en production en janvier 2018');
+		$ob->setDescription('Mise en place d\'une architecture microservices en NodeJS avec communication asynchrone via RabbitMQ et communication synchrone via des apis REST (Hapi), des apis clients en Symfony et un front en Angular4. Mis en production en janvier 2018');
 		$manager->persist($ob);
 
         $fv = new Reference();
 		$fv->setNom('Réécriture complète des fiches valeurs du site');
 		$fv->setUrl('https://www.boursedirect.com');
 		$fv->setJob($this->getReference('bd'));
-		$fv->setDescription('Mise en place d\'un référentiel valeur international multi sources exploitable via ElasticSearch, intégré en NodeJS et exploitant par des apis et des front controller Symfony');
+		$fv->setDescription('Mise en place d\'un référentiel valeur international multi sources exploitable via ElasticSearch, intégré en NodeJS et exploité par des apis et des front controller Symfony. Mis en production en Avril 2017');
 		$manager->persist($fv);
         
+        $cms = new Reference();
+		$cms->setNom('Mis en place d\'un CMS sous Symfony');
+		$cms->setUrl('https://www.boursedirect.com');
+		$cms->setJob($this->getReference('bd'));
+		$cms->setDescription('Développement d\'un CMS "maison" avec Symfony pour les équipes éditoriales. Mis en production en juin 2016');
+		$manager->persist($cms);
+
+        $news = new Reference();
+		$news->setNom('Intégation de flux de news multi format');
+		$news->setUrl('https://www.boursedirect.com');
+		$news->setJob($this->getReference('bd'));
+		$news->setDescription('Développement d\'un module d\'intégration et de formattage d\'article ainsi qu\'un back office CRUD. Développé avec Symfony et exploitable avec ElasticSearch. Mis en production en décembre 2015.');
+		$manager->persist($news);   
+
         $reference = new Reference();
 		$reference->setNom('Site d\'Exane Asset Management');
 		$reference->setUrl('https://www.exane-am.com');

@@ -64,7 +64,7 @@ class LoadCompetenceData extends AbstractFixture implements OrderedFixtureInterf
 		$manager->persist($competence1);
 
 		$competence2 = new Competence();
-		$competence2->setNom('Symfony2');
+		$competence2->setNom('Symfony');
 		$competence2->setNiveau(4);
 		$competence2->setCategory($this->getReference('back'));
 		$manager->persist($competence2);
