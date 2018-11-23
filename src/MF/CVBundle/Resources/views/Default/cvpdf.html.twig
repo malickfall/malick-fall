@@ -17,9 +17,15 @@
 	.job-row {margin-bottom:10px;background-color:#ddd;padding:10px;}
 	.job-row-left {width:35%}
 	.job-row-right {width:65%;float:right}
-	.comp-row {margin-bottom:10px;background-color:#ddd;padding:10px;}
+	.comp-row {
+        background-color:#ddd;padding:5px;
+    }
 	.clear {clear:both;}
-	.position {font-size:20px;margin-bottom:5px;color:#428BCA;}
+	.position {
+        font-size:18px;
+        /*margin-bottom:5px;*/
+        color:#428BCA;
+    }
 	.company {font-weight:bold}
 	.header-link {color:#fff;text-decoration:none}
 	.link {font-style:italic;color:#111;text-decoration:none}
@@ -36,15 +42,21 @@
 		<div class="header-up">
 			<!--<div class="photo">photo</div>-->
 			<div class="header-desc">
-				<h1>{{ me.prenom }} {{ me.nom }}</h1>
-				<h2>{{ me.position }}</h2>
+				<h1 style="display: inline">{{ me.prenom }} {{ me.nom }}</h1>
+				<h2 style="display: inline">&nbsp;{{ me.position }}</h2>
 				<!--<div><a href="{{ me.site }}" class="header-link" target="_blank">{{ me.site }}</a></div>-->
 			</div>
 		</div>
 		<div class="header-down">
-			<span class="header-down-left">{{ me.age }} (7 ans d'expérience)</span>
+            <div>{{ me.age }} (7 ans d'expérience)</div>
+            <div>Permis B (+ formation 125)</div>
+            <div>{{me.email}} / {{ me.tel }}</div>
+
+			<!--<span class="header-down-left">
+                {{ me.age }} (7 ans d'expérience)</span>
 			<span class="header-down-middle">&nbsp;</span>
-			<span class="header-down-right">Permis B (+ formation 125)</span>
+			<span class="header-down-middle">Permis B (+ formation 125)</span>
+			<span class="header-down-right">{{me.email}} / {{ me.tel }}</span>-->
 		</div>
 	</div>
 	
@@ -76,19 +88,15 @@
 			<div>
 				{% for competence in competences if competence.category.nom == 'Backend' or competence.category.nom == 'Frontend' %}
 					<div class="comp-row">
-						<div class="position">{{ competence.nom|upper }}</div>
-						<ul>
-						{% for obj in competence %}
-							<li>{{ obj.nom }}</li>
-						{% endfor %}
-						</ul>
+						<div class="position">{{ competence.nom }}</div>
 					</div>
 				{% endfor %}
 			</div>
 		</div>
         <div class="margin-bottom: 10px">&nbsp;</div>
         <div style="clear: both">
-			<h3>{{ 'Références' }}</h3>
+			<hr/>
+            <h3>{{ 'Références' }}</h3>
 			<hr/>
             {% for reference in references %}
                 <div class="job-row">
@@ -105,9 +113,4 @@
             {% endfor %}
         </div>
 	</div>
-
-    <div id="footer">
-       <span style="float: right">{{me.email}} / {{ me.tel }}</span> 
-       <span style="clear: both">&nbsp;</span>
-    </div>
 {% endblock %}

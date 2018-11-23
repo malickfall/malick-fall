@@ -27,7 +27,7 @@ class LoadReferenceData extends AbstractFixture implements OrderedFixtureInterfa
 		$bd->setUrl('http://www.boursedirect.fr');
 		$bd->setPosition('Lead developer Back/Front');
 		$bd->setLocation('Paris');
-		$bd->setDescription('Développement des logiciels Bourse Direct. Lead developer Backend et Frontend');
+		$bd->setDescription('Développement et maintenance des logiciels Bourse Direct. Lead developer Backend et Frontend');
 		$bd->setToken(uniqid("",true));
 		$bd->setIsActivated(true);
 		$bd->setBegunAt(new \DateTime("2015-02-09 09:00:00"));

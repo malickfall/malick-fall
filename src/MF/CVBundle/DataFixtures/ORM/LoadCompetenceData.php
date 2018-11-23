@@ -78,7 +78,7 @@ class LoadCompetenceData extends AbstractFixture implements OrderedFixtureInterf
 		$competence4 = new Competence();
 		$competence4->setNom('Linux');
 		$competence4->setNiveau(3);
-		$competence4->setCategory($this->getReference('back'));
+		$competence4->setCategory($this->getReference('soft'));
 		$manager->persist($competence4);
 
 		$competence5 = new Competence();
@@ -92,12 +92,6 @@ class LoadCompetenceData extends AbstractFixture implements OrderedFixtureInterf
 		$competence6->setNiveau(4);
 		$competence6->setCategory($this->getReference('front'));
 		$manager->persist($competence6);
-
-		$competence7 = new Competence();
-		$competence7->setNom('Ajax');
-		$competence7->setNiveau(4);
-		$competence7->setCategory($this->getReference('back'));
-		$manager->persist($competence7);
 
 		$competence8 = new Competence();
 		$competence8->setNom('PHPUnit');
@@ -172,12 +166,6 @@ class LoadCompetenceData extends AbstractFixture implements OrderedFixtureInterf
 		$competence21->setNom('clients FTP/SSH (Filezilla, Putty, ...)');
 		$competence21->setCategory($this->getReference('soft'));
 		$manager->persist($competence21);
-
-		$competence22 = new Competence();
-		$competence22->setNom('API Mailchimp');
-		$competence22->setNiveau(4);
-		$competence22->setCategory($this->getReference('back'));
-		$manager->persist($competence22);
 
 		$competence23 = new Competence();
 		$competence23->setNom('NodeJS');
